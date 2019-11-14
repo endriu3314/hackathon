@@ -22,3 +22,8 @@ Route::get('oauth/{driver}', 'Auth\SocialAuthController@redirectToProvider')->na
 Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderCallback')->name('social.callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//admin routes
+Route::group(['middleware' => ['role:admin']], function(){
+    Route::get('/admin', 'AdminController@index')->name('admin.home');
+});
