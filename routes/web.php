@@ -29,7 +29,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', function () {
         return view('app');
     });
+
     Route::get('/profile/{id}', 'UserController@showProfile')->name('profile');
+
+    Route::prefix('user')->group(function () {
+        Route::post('update', 'UserController@updateUser')->name('update-user');
+    });
 
     //admin routes
     Route::group(['middleware' => ['role:admin']], function(){

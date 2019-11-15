@@ -10,7 +10,6 @@ use App\Handlers\ErrorHandler;
 class UserController extends Controller
 {
     //api
-
     /**
      * API for VUE
      * @param Request $request
@@ -26,6 +25,37 @@ class UserController extends Controller
         }
 
         return $res;
+    }
+
+    //forms
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\Response|null
+     */
+    public function updateUser(Request $request) {
+        $result = null;
+
+        $request->validate([
+            'id' => 'required',
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'avatar' => 'required',
+        ]);
+
+        try {
+            $user = User::find($request->id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->avatar = $request->avatar;
+
+            $user->save();
+            $result = $user;
+        } catch (Exception $e) {
+            $result = ErrorHandler::getErrorResponse('102');
+        }
+
+        return $result;
     }
 
     //views
