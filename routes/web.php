@@ -21,9 +21,26 @@ Auth::routes();
 Route::get('oauth/{driver}', 'Auth\SocialAuthController@redirectToProvider')->name('social.oauth');
 Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderCallback')->name('social.callback');
 
+//normal routes
 Route::get('/home', 'HomeController@index')->name('home');
 
-//admin routes
-Route::group(['middleware' => ['role:admin']], function(){
-    Route::get('/admin', 'AdminController@index')->name('admin.home');
+//loged-in routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard', function () {
+        return view('app');
+    });
+
+    Route::get('/profile/{id}', 'UserController@showProfile')->name('profile');
+
+    Route::prefix('user')->group(function () {
+        Route::post('update', 'UserController@updateUser')->name('update-user');
+    });
+
+    //admin routes
+    Route::group(['middleware' => ['role:admin']], function(){
+        Route::get('/admin', 'AdminController@index')->name('admin.home');
+    });
 });
+
+
+
