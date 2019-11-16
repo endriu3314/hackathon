@@ -1,5 +1,5 @@
 <template>
-    <table class="table table-striped">
+    <table class="table table-striped ">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -11,19 +11,22 @@
         </tr>
         </thead>
         <tbody>
-            <tr v-for="item in usersData">
+            <tr v-for="(item, index) in usersData">
             
-                <td><div class="mt-2">{{ item.id }}</div></td>
-                <td><div class="mt-2">{{ item.name }}</div></td>
-                <td><div class="mt-2">{{ item.email }}</div></td>
-                <td><div class="mt-2">{{ item.role }}</div></td>
-                <td><div class="mt-2">{{ item.provider }}</div></td>
-        
+                <td><p class="mt-2">{{ item.id }}</p></td>
+                <td><p class="mt-2">{{ item.name }}</p></td>
+                <td><p class="mt-2">{{ item.email }}</p></td>
+                
+                <td><p class="mt-2">{{ item.provider }}</p></td>
+                <td><p class="mt-2">
+                    <a v-if="userAdmin[index]" class="">Admin</a>
+                    <a v-else class="">Membru</a>
+                </p></td>
                 <td>
                     <div class="row">
                         <div class="col">
-                            <a v-if=""class="btn btn-primary" href="#">Admin</a>
-                            <a class="btn btn-secondary" href="#">Membru</a>
+                            <a v-if="userAdmin[index]" class="btn btn-secondary" href="#">Membru</a>
+                            <a v-else class="btn btn-primary" href="#">Admin</a>
                         </div>
                     </div>
                 </td>
@@ -35,21 +38,32 @@
 <script>
     export default {
         name: "UserProfile",
-        props: ['route'],
+        props: ['route', 'userRoleUrl'],
+        methods: {
+            isAdmin: function(){
+                
+            },
+        },
         data: () => {
             return {
                 usersData: {},
+                userAdmin: {}
             }
         },
         mounted() {
             axios.get(`${this.route}`).then((response) => {
                 this.usersData = response.data;
-                
             });
+
+            axios.get(`${this.userRoleUrl}`).then((response) => {
+                this.userAdmin = response.data;
+            })
         },
     }
 </script>
 
 <style scoped>
-
+    p,th{
+        color:white;
+    }
 </style>

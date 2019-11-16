@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Cotei</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -12,14 +12,44 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #404552;
+                color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
             }
 
+            /* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;  
+  -webkit-animation:fadeIn ease-in 1; 
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;  
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fade-in.one {
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+.fade-in.two {
+  -webkit-animation-delay: 1.4s;
+  -moz-animation-delay: 1.4s;
+  animation-delay: 1.4s;
+}
             .full-height {
                 height: 100vh;
             }
@@ -47,9 +77,9 @@
             .title {
                 font-size: 84px;
             }
-
-            .links > a {
-                color: #636b6f;
+            
+            a {
+                color: #fff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -57,13 +87,16 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
+            #cua{
+                color: #39679e;
+                font-size:35px;
+            }
             .m-b-md {
                 margin-bottom: 30px;
             }
         </style>
     </head>
-    <body>
+    <body class="fade-in one">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -72,10 +105,10 @@
                             window.location = "{{ url('/home') }}";
                         </script>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a class="fade-in two" href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a class="fade-in two" href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
                 </div>
@@ -83,19 +116,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Cotei
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+               
+                    <a class="fade-in two" id="cua" href="{{ route('login') }}">Cauti un angajat?</a>
+                
             </div>
         </div>
     </body>
