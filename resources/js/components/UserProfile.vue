@@ -1,5 +1,5 @@
 <template>
-    <div class="card w-100 m-2.">
+    <div class="card w-100 m-2">
         <div class="card-body row">
             <div class="col-md-3">
                 <img :src="userData.avatar" class="img-fluid" v-if="userData.avatar != null">

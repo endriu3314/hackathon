@@ -14,14 +14,26 @@
                     <input class="form-control" type="email" name="companie" id="companie">
                 </div>
                 <div class="form-group">
-                    <div>
-                        <date-picker v-model="time1" valueType="format"></date-picker>
-                        <date-picker v-model="time2" type="datetime"></date-picker>
-                    </div>
+                    <label class="data1" for="data1">Data Start</label>
+                    <date-pick
+                        name="data1"
+                        id="data1"
+                        v-model="date1"
+                        :format="'YYYY.MM.DD'"
+                    ></date-pick>
                 </div>
-                <input type="hidden" name="id" :value="userData.id">
+                <div class="form-group">
+                    <label class="data2" for="data2">Data Stop</label>
+                    <date-pick
+                        name="data2"
+                        id="data2"
+                        v-model="date2"
+                        :format="'YYYY.MM.DD'"
+                    ></date-pick>
+                </div>
+                <input type="hidden" name="id">
                 <input type="hidden" name="_token" :value="csrf">
-                <div class="btn btn-primary" v-on:click="update()"><span>Update</span></div>
+                <div class="btn btn-primary" v-on:click="update()"><span>Incarca</span></div>
             </form>
 
         </div>
@@ -29,49 +41,22 @@
 </template>
 
 <script>
-    //import {jobsEventService} from "../app";
-    import DatePicker from 'vue2-datepicker';
-    import 'vue2-datepicker/index.css';
+    import DatePick from 'vue-date-pick';
+    import 'vue-date-pick/dist/vueDatePick.css';
 
     export default {
-        components: { DatePicker },
-        name: "AdaugaJob",
-        props: ['insertUrl'],
-        methods: {
-            update: function () {
-                const formData = $('#add-job').serializeArray();
+        components: {DatePick},
+        data: () => ({
+            date1: null,
+            date2: null,
+            csrf: $('meta[name="csrf-token"]').attr('content')
+        })
+    };
 
-                axios.post(`${this.userUpdateUrl}`, {
-                    name: formData[0].value,
-                    email: formData[1].value,
-                    avatar: formData[2].value,
-                    id: formData[3].value,
-                }).then((response) => {
-                    jobsEventService.$emit('jobInserted', response.data);
-                });
-
-                window.location.reload();
-            },
-        },
-        data: () => {
-            return {
-                userData: {},
-                csrf: $('meta[name="csrf-token"]').attr('content')
-            }
-            return {
-                time1: null,
-                time2: null,
-                time3: null,
-            }
-        },
-        mounted() {
-            axios.get(`${this.userDataUrl}`).then((response) => {
-                this.userData = response.data;
-            });
-        },
-    }
 </script>
 
 <style scoped>
-
+    .vdpComponent.vdpWithInput > input{
+    background-color: black !important;
+}
 </style>
