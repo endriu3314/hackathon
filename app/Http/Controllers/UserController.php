@@ -63,6 +63,24 @@ class UserController extends Controller
         return $res;
     }
 
+    /**
+     * API USER ROLES
+     */
+    public function getUsersRoles(Request $request){
+        $res = [];
+
+        try{
+            $i = 0;
+            foreach(User::all() as $user){
+                $res[$i] = $user->hasRole('admin');
+                $i++;
+            }
+        } catch (Exception $e) {
+            $res = ErrorHandler::getErrorResponse('101');
+        }
+
+        return json_encode($res);
+    }
     //forms
 
     /**
