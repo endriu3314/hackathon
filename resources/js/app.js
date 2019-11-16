@@ -14,7 +14,7 @@ window.Vue = require('vue');
  */
 
 export const userEventService = new Vue();
-
+export const jobsEventService = new Vue();
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
