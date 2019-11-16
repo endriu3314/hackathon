@@ -1971,6 +1971,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserProfile",
   props: ['route'],
@@ -2172,6 +2176,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserProfileEdit",
@@ -2185,7 +2193,8 @@ __webpack_require__.r(__webpack_exports__);
         varsta: formData[2].value,
         nrtel: formData[3].value,
         avatar: formData[4].value,
-        id: formData[5].value
+        descriere: formData[5].value,
+        id: formData[6].value
       }).then(function (response) {
         _app__WEBPACK_IMPORTED_MODULE_0__["userEventService"].$emit('userUpdated', response.data);
       });
@@ -38322,13 +38331,25 @@ var render = function() {
       "tbody",
       _vm._l(_vm.usersData, function(item) {
         return _c("tr", [
-          _c("td", [_vm._v(_vm._s(item.id))]),
+          _c("td", [
+            _c("div", { staticClass: "mt-2" }, [_vm._v(_vm._s(item.id))])
+          ]),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.name))]),
+          _c("td", [
+            _c("div", { staticClass: "mt-2" }, [_vm._v(_vm._s(item.name))])
+          ]),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.email))]),
+          _c("td", [
+            _c("div", { staticClass: "mt-2" }, [_vm._v(_vm._s(item.email))])
+          ]),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.provider))]),
+          _c("td", [
+            _c("div", { staticClass: "mt-2" }, [_vm._v(_vm._s(item.role))])
+          ]),
+          _vm._v(" "),
+          _c("td", [
+            _c("div", { staticClass: "mt-2" }, [_vm._v(_vm._s(item.provider))])
+          ]),
           _vm._v(" "),
           _vm._m(1, true)
         ])
@@ -38352,6 +38373,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("OAuth Provider")]),
         _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Role")]),
+        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Actions")])
       ])
     ])
@@ -38363,12 +38386,12 @@ var staticRenderFns = [
     return _c("td", [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col" }, [
-          _c("a", { staticClass: "btn btn-danger", attrs: { href: "#" } }, [
-            _vm._v("Button")
+          _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+            _vm._v("Admin")
           ]),
           _vm._v(" "),
           _c("a", { staticClass: "btn btn-secondary", attrs: { href: "#" } }, [
-            _vm._v("Button")
+            _vm._v("Membru")
           ])
         ])
       ])
@@ -38631,6 +38654,16 @@ var render = function() {
               staticClass: "form-control",
               attrs: { type: "text", name: "avatar", id: "avatar" },
               domProps: { value: _vm.userData.avatar }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "descriere" } }, [_vm._v("Descriere")]),
+            _vm._v(" "),
+            _c("textarea", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "descriere", id: "descriere" },
+              domProps: { value: _vm.userData.descriere }
             })
           ]),
           _vm._v(" "),

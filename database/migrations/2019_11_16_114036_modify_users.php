@@ -16,6 +16,7 @@ class ModifyUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('nrtel')->nullable();
             $table->integer('varsta')->nullable();
+            $table->string('descriere')->nullable();
         }); 
     }
 
