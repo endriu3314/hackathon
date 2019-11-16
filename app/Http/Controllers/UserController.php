@@ -89,6 +89,7 @@ class UserController extends Controller
             $user->varsta = $request->varsta;
             $user->nrtel = $request->nrtel;
             $user->avatar = $request->avatar;
+            $user->descriere = $request->descriere;
 
             $user->save();
             $result = $user;

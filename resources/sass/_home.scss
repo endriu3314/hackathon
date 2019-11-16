@@ -1,0 +1,44 @@
+.imag {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .dom:hover .imag {
+    opacity: 0.3;
+  }
+  
+  .dom:hover .middle {
+    opacity: 1;
+  }
+  
+  .buton {
+background-color: #5294e2;
+border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  }
+
+.buton:hover{
+    background-color: #4176b4;
+    transition: .5s ease;
+}
+
