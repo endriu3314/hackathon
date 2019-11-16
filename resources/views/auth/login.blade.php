@@ -11,6 +11,17 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        <div class="form-group row" >
+                            <div class="col text-right">
+                                <a style="font-size: 1.2em; background-color: #3b5998; border-color: #3b5998; color: white;" href="{{ route('social.oauth', 'facebook') }}" class="btn w-50"><i class="fab fa-facebook-square"></i> Facebook</a>
+                            </div>
+                            <div class="col">
+                                <a style="font-size: 1.2em; color: white;" href="{{ route('social.oauth', 'google') }}" class="btn btn-danger w-50"><i class="fab fa-google"></i> Google</a>
+                            </div>
+                        </div>
+
+                        <hr/>
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -63,23 +74,6 @@
                                     </a>
                                 @endif
                             </div>
-                        </div>
-                        <br />
-                        <p style="margin-left:265px">OR</p>
-                        <br />
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <a href="{{ route('social.oauth', 'facebook') }}" class="btn btn-primary btn-block">
-                                    Login with Facebook
-                                </a>
-                            </div>
-                        </div>
-                        <p style="margin-left:265px">OR</p>
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-block">
-                                    Login with Google
-                                </a>div>
                         </div>
                     </form>
                 </div>

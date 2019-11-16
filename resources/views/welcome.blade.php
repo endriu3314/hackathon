@@ -68,7 +68,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <script type="text/javascript">
+                            window.location = "{{ url('/home') }}";
+                        </script>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 

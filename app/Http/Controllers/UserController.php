@@ -11,15 +11,51 @@ class UserController extends Controller
 {
     //api
     /**
-     * API for VUE
+     * API for VUE (UserProfile)
      * @param Request $request
      * @return \Illuminate\Http\Response|null
      */
-    public function getUser(Request $request){
+    public function getUser(Request $request)
+    {
         $res = null;
 
-        try{
+        try {
             $res = User::find($request->id)->toJson();
+        } catch (Exception $e) {
+            $res = ErrorHandler::getErrorResponse('101');
+        }
+
+        return $res;
+    }
+
+    /**
+     * API for Admin Table, all users
+     * @return \Illuminate\Http\Response|string|null
+     */
+    public function getUsers()
+    {
+        $res = null;
+
+        try {
+            $res = User::all()->toJson();
+        } catch (Exception $e) {
+            $res = ErrorHandler::getErrorResponse('301');
+        }
+
+        return $res;
+    }
+
+    /**
+     * API for user role
+     * @param Request $request
+     * @return \Illuminate\Http\Response|string|null
+     */
+    public function getUserRole(Request $request)
+    {
+        $res = null;
+
+        try {
+            $res = User::find($request->id)->hasRole('admin') ? 'true' : 'false';
         } catch (Exception $e) {
             $res = ErrorHandler::getErrorResponse('101');
         }
@@ -33,7 +69,8 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\Response|null
      */
-    public function updateUser(Request $request) {
+    public function updateUser(Request $request)
+    {
         $result = null;
 
         $request->validate([
@@ -59,7 +96,8 @@ class UserController extends Controller
     }
 
     //views
-    public function showProfile() {
+    public function showProfile()
+    {
         return view('user.profile');
     }
 }

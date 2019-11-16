@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    You are admin!
+    <admin-users-table route="{{route('api-users')}}"></admin-users-table>
 @endsection
