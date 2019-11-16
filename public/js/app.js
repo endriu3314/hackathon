@@ -2005,6 +2005,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserProfileEdit",
@@ -2015,8 +2023,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("".concat(this.userUpdateUrl), {
         name: formData[0].value,
         email: formData[1].value,
-        avatar: formData[2].value,
-        id: formData[3].value
+        varsta: formData[2].value,
+        nrtel: formData[3].value,
+        avatar: formData[4].value,
+        id: formData[5].value
       }).then(function (response) {
         _app__WEBPACK_IMPORTED_MODULE_0__["userEventService"].$emit('userUpdated', response.data);
       });
@@ -37565,6 +37575,26 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "varsta" } }, [_vm._v("Varsta")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "varsta", id: "varsta" },
+              domProps: { value: _vm.userData.varsta }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "nrtel" } }, [_vm._v("Nr.Tel")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "nrtel", id: "nrtel" },
+              domProps: { value: _vm.userData.nrtel }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "avatar" } }, [
               _vm._v("Profile image (url)")
             ]),
@@ -50171,8 +50201,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\hackathon-start\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! G:\hackathon-start\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Wire Impulse\Desktop\hackathon\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Wire Impulse\Desktop\hackathon\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

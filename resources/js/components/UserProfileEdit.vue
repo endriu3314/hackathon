@@ -14,6 +14,14 @@
                     <input class="form-control" type="email" name="email" id="email" :value="userData.email">
                 </div>
                 <div class="form-group">
+                    <label class="" for="varsta">Varsta</label>
+                    <input class="form-control" type="text" name="varsta" id="varsta" :value="userData.varsta">
+                </div>
+                <div class="form-group">
+                    <label class="" for="nrtel">Nr.Tel</label>
+                    <input class="form-control" type="text" name="nrtel" id="nrtel" :value="userData.nrtel">
+                </div>
+                <div class="form-group">
                     <label class="" for="avatar">Profile image (url)</label>
                     <input class="form-control" type="text" name="avatar" id="avatar"
                            :value="userData.avatar">
@@ -40,8 +48,10 @@
                 axios.post(`${this.userUpdateUrl}`, {
                     name: formData[0].value,
                     email: formData[1].value,
-                    avatar: formData[2].value,
-                    id: formData[3].value,
+                    varsta: formData[2].value,
+                    nrtel: formData[3].value,
+                    avatar: formData[4].value,
+                    id: formData[5].value,
                 }).then((response) => {
                     userEventService.$emit('userUpdated', response.data);
                 });
