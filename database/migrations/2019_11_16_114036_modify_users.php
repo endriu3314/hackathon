@@ -17,6 +17,8 @@ class ModifyUsers extends Migration
             $table->string('nrtel')->nullable();
             $table->integer('varsta')->nullable();
             $table->string('descriere')->nullable();
+            $table->string('faculta')->nullable();
+            $table->string('domeniu')->nullable();
         }); 
     }
 

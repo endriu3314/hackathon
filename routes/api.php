@@ -17,6 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/jobs/{id}', 'JobsController@getJobs')->name('api-userjobs');
+
 Route::get('/user/{id}', 'UserController@getUser')->name('api-userdata');
 Route::get('/users', 'UserController@getUsers')->name('api-users');
 Route::get('/user-role/{id}', 'UserController@getUserRole')->name('api-userrole');

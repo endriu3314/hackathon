@@ -36,6 +36,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('update', 'UserController@updateUser')->name('update-user');
     });
 
+    Route::prefix('jobs')->group(function () {
+        Route::post('insert', 'JobsController@insertJob')->name('insert-job');
+    });
+
     //admin routes
     Route::group(['middleware' => ['role:admin']], function(){
         Route::get('/admin', 'AdminController@index')->name('admin.home');

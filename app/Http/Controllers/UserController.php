@@ -98,6 +98,9 @@ class UserController extends Controller
             'varsta' => 'required',
             'nrtel' => 'required',
             'avatar' => 'required',
+            'descriere' => 'required',
+            'faculta' => 'required',
+            'domeniu' => 'required',
         ]);
 
         try {
@@ -107,6 +110,8 @@ class UserController extends Controller
             $user->varsta = $request->varsta;
             $user->nrtel = $request->nrtel;
             $user->avatar = $request->avatar;
+            $user->faculta = $request->faculta;
+            $user->domeniu = $request->domeniu;
             $user->descriere = $request->descriere;
 
             $user->save();
