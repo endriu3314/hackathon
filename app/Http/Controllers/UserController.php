@@ -77,6 +77,8 @@ class UserController extends Controller
             'id' => 'required',
             'name' => 'required|string',
             'email' => 'required|email',
+            'varsta' => 'required',
+            'nrtel' => 'required',
             'avatar' => 'required',
         ]);
 
@@ -84,6 +86,8 @@ class UserController extends Controller
             $user = User::find($request->id);
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->varsta = $request->varsta;
+            $user->nrtel = $request->nrtel;
             $user->avatar = $request->avatar;
 
             $user->save();
