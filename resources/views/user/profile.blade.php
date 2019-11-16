@@ -13,7 +13,9 @@
             <user-profile-edit user-data-url="{{route('api-userdata', Auth::user()->id)}}"
                                user-update-url="{{route('update-user')}}">
             </user-profile-edit>
-            <adauga-job insert-url="{{route('insert-job')}}"></adauga-job>
+            <adauga-job insert-url="{{route('insert-job')}}"
+                        user-data-url="{{route('api-userdata', Auth::user()->id)}}">
+            </adauga-job>
         </div>
     </div>
 @endsection

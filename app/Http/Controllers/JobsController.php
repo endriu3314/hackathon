@@ -28,6 +28,29 @@ class JobsController extends Controller
     }
 
     public function insertJob(Request $request){
+        $res = null;
 
+        $request->validate([
+            'functie' => 'required',
+            'companie' => 'required',
+            'data1' => 'required',
+            'data2' => 'required',
+        ]);
+
+        try {
+            $job = new Job;
+            $job->user_id = $request->id;
+            $job->functie = $request->functie;
+            $job->companie = $request->companie;
+            $job->start_job = $request->data1;
+            $job->end_job = $request->data2;
+
+            $job->save();
+            $res = $job;
+        } catch (Exception $e){
+            $res = ErrorHandler::getErrorResponse('102');
+        }
+
+        return $res;
     }
 }
