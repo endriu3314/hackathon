@@ -13,6 +13,7 @@
             <user-profile-edit user-data-url="{{route('api-userdata', Auth::user()->id)}}"
                                user-update-url="{{route('update-user')}}">
             </user-profile-edit>
+            <adauga-job insert-url="{{route('insert-job')}}"></adauga-job>
         </div>
     </div>
 @endsection
@@ -23,5 +24,11 @@
     import IstoricJoburi from "../../js/components/IstoricJoburi";
     export default {
         components: {IstoricJoburi}
+    }
+</script>
+<script>
+    import AdaugaJob from "../../js/components/AdaugaJob";
+    export default {
+        components: {AdaugaJob}
     }
 </script>

@@ -1871,7 +1871,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 //import {jobsEventService} from "../app";
 
 
@@ -54590,17 +54589,6 @@ var render = function() {
                     },
                     expression: "time2"
                   }
-                }),
-                _vm._v(" "),
-                _c("date-picker", {
-                  attrs: { range: "" },
-                  model: {
-                    value: _vm.time3,
-                    callback: function($$v) {
-                      _vm.time3 = $$v
-                    },
-                    expression: "time3"
-                  }
                 })
               ],
               1
@@ -54880,7 +54868,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card w-100" }, [
+  return _c("div", { staticClass: "card w-100 m-2." }, [
     _c("div", { staticClass: "card-body row" }, [
       _c("div", { staticClass: "col-md-3" }, [
         _vm.userData.avatar != null
@@ -54930,7 +54918,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
+  return _c("div", { staticClass: "card w-100 m-2" }, [
     _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title text-center font-weight-bold" }, [
         _vm._v("Edit Profile")

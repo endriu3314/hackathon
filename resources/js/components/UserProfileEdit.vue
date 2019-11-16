@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card w-100 m-2">
         <div class="card-body">
             <h5 class="card-title text-center font-weight-bold">Edit Profile</h5>
             <hr/>

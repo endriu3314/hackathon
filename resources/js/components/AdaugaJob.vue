@@ -17,7 +17,6 @@
                     <div>
                         <date-picker v-model="time1" valueType="format"></date-picker>
                         <date-picker v-model="time2" type="datetime"></date-picker>
-                        <date-picker v-model="time3" range></date-picker>
                     </div>
                 </div>
                 <input type="hidden" name="id" :value="userData.id">
