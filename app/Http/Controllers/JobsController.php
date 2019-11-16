@@ -53,4 +53,31 @@ class JobsController extends Controller
 
         return $res;
     }
+
+    public function updateJob(Request $request){
+        $result = null;
+
+        $request->validate([
+            'functie' => 'required',
+            'companie' => 'required',
+            'data1' => 'required',
+            'data2' => 'required',
+        ]);
+
+        try {
+            $job = Job::find($request->id);
+            $job->user_id = $request->id;
+            $job->functie = $request->functie;
+            $job->companie = $request->companie;
+            $job->start_job = $request->data1;
+            $job->end_job = $request->data2;
+
+            $job->save();
+            $result = $user;
+        } catch (Exception $e) {
+            $result = ErrorHandler::getErrorResponse('102');
+        }
+
+        return $result;
+    }
 }
