@@ -28,7 +28,7 @@
                         <p class="mb-2 "><i class="mr-2 fas fa-phone"></i> {{user[1].nrtel}}</p>
                         <p class="mb-2 "><i class="mr-2 fas fa-school"></i> {{user[1].facultate}}</p>
                         <p class="mb-2 "><i class="mr-2 fas fa-building"></i></p>
-                        <a class="btn btn-primary w-100" href="">Vezi profil</a>
+                        <a class="btn btn-primary w-100" :href="'/user-profil/' + user[1].id">Vezi profil</a>
                     </div>
                 </div>
             </div>
