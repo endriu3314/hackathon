@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<title>Cotei</title>
     <div class="row flex-row flex-wrap">
         <div class="col-6">
             <div class="row">

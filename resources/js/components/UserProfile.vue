@@ -7,7 +7,8 @@
             <div class="col-md-9">
                 <h5 class="card-title text-center">{{ userData.name }}</h5>
                 <hr/>
-                <a :href="'mailto:'+userData.email" class=""><i class="fas fa-envelope"></i> {{userData.email}}</a>
+                <a :href="'mailto:'+userData.email" ><i class="fas fa-envelope"></i> {{userData.email}}</a>
+                <a :href="'callto:'+userData.nrtel" class="d-flex flex-column">{{userData.nrtel}}</a>
                 <p>Member since {{userData.created_at}}</p>
             </div>
         </div>

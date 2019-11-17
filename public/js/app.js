@@ -2120,6 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserProfile",
@@ -38637,6 +38638,15 @@ var render = function() {
           _c("i", { staticClass: "fas fa-envelope" }),
           _vm._v(" " + _vm._s(_vm.userData.email))
         ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "d-flex flex-column",
+            attrs: { href: "callto:" + _vm.userData.nrtel }
+          },
+          [_vm._v(_vm._s(_vm.userData.nrtel))]
+        ),
         _vm._v(" "),
         _c("p", [_vm._v("Member since " + _vm._s(_vm.userData.created_at))])
       ])
