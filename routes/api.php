@@ -28,3 +28,6 @@ Route::get('users/marketing', 'UserController@getMarketingUsers')->name('api-mar
 Route::get('users/vanzari', 'UserController@getVanzariUsers')->name('api-vanzari-users');
 
 Route::get('/user-roles', 'UserController@getUsersRoles')->name('api-userroles');
+
+Route::get('/events', 'EventController@getEvents')->name('api-events');
+Route::get('/event-attendance', 'EventController@getEventsAttendance')->name('api-events-attendance');

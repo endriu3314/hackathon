@@ -10,8 +10,6 @@
                         <div v-for="user in userData">
                             {{user.facultate}} <input type="checkbox" v-model="fac" :value="user.facultate"/>
                         </div>
-
-                        <p><strong>Varsta:</strong><input type="text" v-model="varsta1"><input type="text" v-model="varsta2"></p>
                     </div>
                 </div>
             </div>

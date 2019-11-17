@@ -23,6 +23,15 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <events route="{{route('api-events')}}"
+                    attendance-route="{{ route('api-events-attendance') }}"></events>
+        </div>
     </div>
-
 @endsection
+<script>
+    import Events from "../../js/components/Events";
+    export default {
+        components: {Events}
+    }
+</script>
