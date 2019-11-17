@@ -81,6 +81,46 @@ class UserController extends Controller
 
         return json_encode($res);
     }
+
+    public function getITUsers(Request $request)
+    {
+        $res = null;
+
+        try {
+            $res = User::where('domeniu', '=', 'IT')->get()->toJson();
+        } catch (Exception $e) {
+            $res = ErrorHandler::getErrorResponse('101');
+        }
+
+        return $res;
+    }
+
+    public function getMarketingUsers(Request $request)
+    {
+        $res = null;
+
+        try {
+            $res = User::where('domeniu', '=', 'Marketing')->get()->toJson();
+        } catch (Exception $e) {
+            $res = ErrorHandler::getErrorResponse('101');
+        }
+
+        return $res;
+    }
+
+    public function getVanzariUsers(Request $request)
+    {
+        $res = null;
+
+        try {
+            $res = User::where('domeniu', '=', 'Vanzari')->get()->toJson();
+        } catch (Exception $e) {
+            $res = ErrorHandler::getErrorResponse('101');
+        }
+
+        return $res;
+    }
+
     //forms
 
     /**
@@ -124,5 +164,17 @@ class UserController extends Controller
     public function showProfile()
     {
         return view('user.profile');
+    }
+
+    public function showIT(){
+        return view('user.it');
+    }
+
+    public function showMarketing(){
+        return view('user.marketing');
+    }
+
+    public function showVanzari(){
+        return view('user.vanzari');
     }
 }

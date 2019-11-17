@@ -23,5 +23,8 @@ Route::get('/user/{id}', 'UserController@getUser')->name('api-userdata');
 Route::get('/users', 'UserController@getUsers')->name('api-users');
 Route::get('/user-role/{id}', 'UserController@getUserRole')->name('api-userrole');
 
+Route::get('users/it', 'UserController@getITUsers')->name('api-it-users');
+Route::get('users/marketing', 'UserController@getMarketingUsers')->name('api-marketing-users');
+Route::get('users/vanzari', 'UserController@getVanzariUsers')->name('api-vanzari-users');
 
 Route::get('/user-roles', 'UserController@getUsersRoles')->name('api-userroles');

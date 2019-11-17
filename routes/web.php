@@ -40,6 +40,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('insert', 'JobsController@insertJob')->name('insert-job');
     });
 
+    Route::get('/category/it', 'UserController@showIT')->name('it-category');
+    Route::get('/category/marketing', 'UserController@showMarketing')->name('marketing-category');
+    Route::get('/category/vanzari', 'UserController@showVanzari')->name('vanzari-category');
+
     //admin routes
     Route::group(['middleware' => ['role:admin']], function(){
         Route::get('/admin', 'AdminController@index')->name('admin.home');

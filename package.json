@@ -24,7 +24,9 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@syncfusion/ej2-vue-inputs": "^17.3.27",
         "font-awesome": "^4.7.0",
-        "vue-date-pick": "^1.2.1"
+        "vue-date-pick": "^1.2.1",
+        "vue-range-slider": "^0.6.0"
     }
 }
