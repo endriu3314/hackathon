@@ -2191,6 +2191,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserProfileEdit",
@@ -2204,11 +2216,14 @@ __webpack_require__.r(__webpack_exports__);
         varsta: formData[2].value,
         nrtel: formData[3].value,
         avatar: formData[4].value,
-        descriere: formData[5].value,
-        id: formData[6].value
+        domeniu: formData[5].value,
+        facultate: formData[6].value,
+        descriere: formData[7].value,
+        id: formData[8].value
       }).then(function (response) {
         _app__WEBPACK_IMPORTED_MODULE_0__["userEventService"].$emit('userUpdated', response.data);
       });
+      console.log(formData);
       window.location.reload();
     }
   },
@@ -38658,104 +38673,147 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _c(
-        "form",
-        {
-          attrs: { id: "user-edit" },
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.update($event)
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "username" } }, [_vm._v("Name")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", name: "username", id: "username" },
-              domProps: { value: _vm.userData.name }
-            })
-          ]),
+      _c("form", { attrs: { id: "user-edit" }, on: { submit: _vm.update } }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "username" } }, [_vm._v("Name")]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "email", name: "email", id: "email" },
-              domProps: { value: _vm.userData.email }
-            })
-          ]),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", name: "username", id: "username" },
+            domProps: { value: _vm.userData.name }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "varsta" } }, [_vm._v("Varsta")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", name: "varsta", id: "varsta" },
-              domProps: { value: _vm.userData.varsta }
-            })
-          ]),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "email", name: "email", id: "email" },
+            domProps: { value: _vm.userData.email }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "varsta" } }, [_vm._v("Varsta")]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "nrtel" } }, [_vm._v("Nr.Tel")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", name: "nrtel", id: "nrtel" },
-              domProps: { value: _vm.userData.nrtel }
-            })
-          ]),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", name: "varsta", id: "varsta" },
+            domProps: { value: _vm.userData.varsta }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "nrtel" } }, [_vm._v("Nr.Tel")]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "avatar" } }, [
-              _vm._v("Profile image (url)")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", name: "avatar", id: "avatar" },
-              domProps: { value: _vm.userData.avatar }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "descriere" } }, [_vm._v("Descriere")]),
-            _vm._v(" "),
-            _c("textarea", {
-              staticClass: "form-control",
-              attrs: { type: "text", name: "descriere", id: "descriere" },
-              domProps: { value: _vm.userData.descriere }
-            })
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", name: "nrtel", id: "nrtel" },
+            domProps: { value: _vm.userData.nrtel }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "avatar" } }, [
+            _vm._v("Profile image (url)")
           ]),
           _vm._v(" "),
           _c("input", {
-            attrs: { type: "hidden", name: "id" },
-            domProps: { value: _vm.userData.id }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "hidden", name: "_token" },
-            domProps: { value: _vm.csrf }
-          }),
+            staticClass: "form-control",
+            attrs: { type: "text", name: "avatar", id: "avatar" },
+            domProps: { value: _vm.userData.avatar }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "domeniu" } }, [_vm._v("Domeniu")]),
           _vm._v(" "),
           _c(
-            "div",
+            "select",
             {
-              staticClass: "btn btn-primary",
-              on: {
-                click: function($event) {
-                  return _vm.update()
-                }
-              }
+              staticClass: "form-control",
+              attrs: { name: "domeniu", id: "domeniu" }
             },
-            [_c("span", [_vm._v("Update")])]
+            [
+              _c(
+                "option",
+                {
+                  domProps: {
+                    selected: _vm.userData.domeniu == "IT" ? "true" : "false"
+                  }
+                },
+                [_vm._v("IT")]
+              ),
+              _vm._v(" "),
+              _c(
+                "option",
+                {
+                  domProps: {
+                    selected:
+                      _vm.userData.domeniu == "Marketing" ? "true" : "false"
+                  }
+                },
+                [_vm._v("Marketing")]
+              ),
+              _vm._v(" "),
+              _c(
+                "option",
+                {
+                  domProps: {
+                    selected:
+                      _vm.userData.domeniu == "Vanzari" ? "true" : "false"
+                  }
+                },
+                [_vm._v("Vanzari")]
+              )
+            ]
           )
-        ]
-      )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "facultate" } }, [_vm._v("Facultate")]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", name: "facultate", id: "facultate" },
+            domProps: { value: _vm.userData.facultate }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "descriere" } }, [_vm._v("Descriere")]),
+          _vm._v(" "),
+          _c("textarea", {
+            staticClass: "form-control",
+            attrs: { type: "text", name: "descriere", id: "descriere" },
+            domProps: { value: _vm.userData.descriere }
+          })
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "hidden", name: "id" },
+          domProps: { value: _vm.userData.id }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "hidden", name: "_token" },
+          domProps: { value: _vm.csrf }
+        }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-primary",
+            on: {
+              click: function($event) {
+                return _vm.update()
+              }
+            }
+          },
+          [_vm._v("Update")]
+        )
+      ])
     ])
   ])
 }
@@ -51487,8 +51545,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\WireImpulse\Desktop\hackathon\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\WireImpulse\Desktop\hackathon\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Wire Impulse\Desktop\hackathon\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Wire Impulse\Desktop\hackathon\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
