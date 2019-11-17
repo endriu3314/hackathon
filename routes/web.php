@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('/profile/{id}', 'UserController@showProfile')->name('profile');
+    Route::get('/user-profil/{id}', 'UserController@showUser')->name('user');
 
     Route::prefix('user')->group(function () {
         Route::post('update', 'UserController@updateUser')->name('update-user');

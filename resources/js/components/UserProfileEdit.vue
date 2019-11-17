@@ -78,7 +78,7 @@
 
                 console.log(formData);
 
-                window.location.reload();
+                //window.location.reload();
             },
         },
         data: () => {

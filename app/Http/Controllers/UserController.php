@@ -166,6 +166,10 @@ class UserController extends Controller
         return view('user.profile');
     }
 
+    public function showUser($id){
+        return view('user.user', compact('id'));
+    }
+
     public function showIT(){
         return view('user.it');
     }
