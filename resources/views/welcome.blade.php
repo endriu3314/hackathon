@@ -12,7 +12,8 @@
     <!-- Styles -->
     <style>
         html, body {
-            background-color: #404552;
+            background: rgb(38,75,119);
+background: linear-gradient(180deg, rgba(38,75,119,1) 44%, rgba(64,69,82,1) 100%, rgba(0,212,255,1) 100%);
             color: #fff;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
@@ -88,7 +89,7 @@
             text-transform: uppercase;
         }
         #cua{
-            color: #39679e;
+            color: #101d2d;
             font-size:35px;
         }
         .m-b-md {
